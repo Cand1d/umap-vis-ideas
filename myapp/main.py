@@ -25,6 +25,8 @@ from sklearn import metrics
 import io
 import requests
     
+nltk.download('stopwords')
+
 lang  = 'german'
 stopw = stopwords.words(lang)
 add_stopw = ['zb','evtl','ggf','vs', 'ja','bspw','bzw','bzgl','ggfs','sollte','sollten','es','Es']
