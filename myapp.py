@@ -3,12 +3,11 @@ from bokeh.io import curdoc
 from bokeh.layouts import column, row
 from bokeh.models import ColumnDataSource, Slider, TextInput, Button
 from bokeh.plotting import figure
-import re, numpy as np, pandas as pd, matplotlib.pyplot as plt
+import pandas as pd, matplotlib.pyplot as plt
 from gensim import corpora, models
 from nltk.stem import SnowballStemmer
 import nltk
 import spacy
-nlp = spacy.load('de_core_news_sm')
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.cluster import KMeans
@@ -18,12 +17,14 @@ from bokeh.transform import factor_cmap
 from bokeh.palettes import *
 from bokeh.models import ColumnDataSource, HoverTool
 from sklearn.metrics import adjusted_rand_score, adjusted_mutual_info_score
-from pprint import pprint
-import random as rd
+#from pprint import pprint
+#import random as rd
 import umap
 from collections import Counter
 from sklearn import metrics
-
+import io
+import requests
+    
 lang  = 'german'
 stopw = stopwords.words(lang)
 add_stopw = ['zb','evtl','ggf','vs', 'ja','bspw','bzw','bzgl','ggfs','sollte','sollten','es','Es']
@@ -70,7 +71,7 @@ def stem_cistem(x):
 
 def pos_clean(x):
     from pattern.de import parse 
-    s = parse(x, chunks=True,tagset="STTS", relations=True, lemmata=True).split()[0]
+    s = parse('Hello Tschuss', chunks=True,tagset="STTS", relations=True, lemmata=True).split()[0]
     sen=[]
     for i in s:
         if i[1] == 'NN' or i[1] == 'ADJA' or i[1] == 'FM' or i[1] == 'ADJD' or i[1] == 'APPRART':
@@ -132,8 +133,7 @@ def top5():
 ###############################
 '''Load data, some cleaning'''
 ###############################
-bertrandt = '/0_Data/bridge/de/bertrandt.csv'
-df = pd.read_csv(ppath + bertrandt,sep='|')
+df = pd.read_csv('https://raw.githubusercontent.com/Cand1d/umap-vis-ideas/master/0_Data/bridge/de/bertrandt.csv',sep='|')
 df.loc['Date'] = df.Date.apply(pd.to_datetime, errors='coerce')
 df = df.dropna() 
 df.index = range(len(df))
