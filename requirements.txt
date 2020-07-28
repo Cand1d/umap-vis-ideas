@@ -6,5 +6,7 @@ gensim
 nltk
 spacy
 sklearn
-umap
+umap-learn
 pattern
+scikit-learn
+numba
