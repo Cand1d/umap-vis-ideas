@@ -1,7 +1,6 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: win-64
-_anaconda_depends=2020.02=py36_0
 abceconomics=0.9.7b0=pypi_0
 alabaster=0.7.12=py36_0
 alembic=1.0.8=pypi_0
