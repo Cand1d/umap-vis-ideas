@@ -71,7 +71,7 @@ def stem_cistem(x):
 
 def pos_clean(x):
     from pattern.de import parse 
-    s = parse('Hello Tschuss', chunks=True,tagset="STTS", relations=True, lemmata=True).split()[0]
+    s = parse(x, chunks=True,tagset="STTS", relations=True, lemmata=True).split()[0]
     sen=[]
     for i in s:
         if i[1] == 'NN' or i[1] == 'ADJA' or i[1] == 'FM' or i[1] == 'ADJD' or i[1] == 'APPRART':
