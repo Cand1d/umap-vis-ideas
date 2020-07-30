@@ -22,8 +22,8 @@ from sklearn.metrics import adjusted_rand_score, adjusted_mutual_info_score
 import umap
 from collections import Counter
 from sklearn import metrics
-import io
-import requests
+#import io
+#import requests
     
 nltk.download('stopwords')
 
