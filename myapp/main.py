@@ -22,8 +22,6 @@ from sklearn.metrics import adjusted_rand_score, adjusted_mutual_info_score
 import umap
 from collections import Counter
 from sklearn import metrics
-#import io
-#import requests
     
 nltk.download('stopwords')
 
@@ -135,7 +133,7 @@ def top5():
 ###############################
 '''Load data, some cleaning'''
 ###############################
-df = pd.read_csv('https://raw.githubusercontent.com/Cand1d/umap-vis-ideas/master/gen_ideas2.csv?token=AAVGVHZAWCILG4DRYGMMY7K7ELZBS')
+df = pd.read_csv('https://raw.githubusercontent.com/Cand1d/umap-vis-ideas/master/gen_ideas2.csv')
 df = df.dropna() 
 
 ############################
